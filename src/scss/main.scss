@@ -1,0 +1,167 @@
+@import "variables";
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  outline: none;
+  list-style-type: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Exo 2', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  background: $bg-color;
+  color: $text-color;
+}
+
+.container {
+  width: 1400px;
+  margin: auto;
+  padding-top: 60px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #d0d0d0;
+  margin-bottom: 20px;
+  padding: 15px;
+}
+
+.title {
+  color: $main-color;
+  margin-bottom: 10px;
+  font-size: 36px;
+}
+
+.subtitle {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+input {
+  background: $bg-color;
+  border: 1px solid #dbe6ea;
+  border-radius: 7px;
+  margin-bottom: 10px;
+  &[type="text"] {
+    height: 45px;
+    padding: 0 15px;
+    font-size: 16px;
+  }
+}
+
+.btn {
+  font-family: 'Poppins', sans-serif;
+  height: 45px;
+  border: none;
+  border-bottom: 2px solid darken($main-color, 30%);
+  border-radius: 7px;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  background: $main-color;
+  cursor: pointer;
+  transition: .3s all;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 1px 2px 5px #939393;
+  }
+  &:active {
+    box-shadow: none !important;
+    transform: none !important;
+  }
+  &.info {
+    background: $info-color;
+    border-bottom: 2px solid darken($info-color, 30%);
+  }
+  &.danger {
+    background: $danger-color;
+    border-bottom: 2px solid darken($danger-color, 30%);
+  }
+  &.warning {
+    background: $warning-color;
+    border-bottom: 2px solid darken($warning-color, 30%);
+  }
+  &.success {
+    background: $success-color;
+    border-bottom: 2px solid darken($success-color, 30%);
+  }
+  &-wrapper .btn {
+    margin-right: 10px;
+  }
+}
+
+.alert {
+  background: #ffffff;
+  margin-bottom: 20px;
+  border-left: 7px solid $info-color;
+  padding: 20px 20px 20px 70px;
+  opacity: 0;
+  z-index: -1;
+  transform: translateX(200px);
+  position: absolute;
+  transition: .4s all;
+  &.info {
+    border-left: 7px solid $info-color;
+  }
+  &.warning {
+    border-left: 7px solid $warning-color;
+  }
+  &.danger {
+    border-left: 7px solid $danger-color;
+  }
+  &.success {
+    border-left: 7px solid $success-color;
+  }
+}
+
+.alert-show {
+  animation: .5s forwards show-alert;
+}
+
+@keyframes show-alert {
+  0% {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    transform: translateX(-200);
+  }
+  99% {
+    opacity: 1;
+    z-index: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 1;
+    z-index: 1;
+    transform: translateX(0);
+    position: static;
+  }
+}
+
+@media (max-width: 1470px) {
+  .container {
+    width: 900px;
+  }
+}
+@media (max-width: 970px) {
+  .container {
+    width: 600px;
+  }
+}
+
+@media (max-width: 670px) {
+  .container {
+    width: 320px;
+  }
+}
